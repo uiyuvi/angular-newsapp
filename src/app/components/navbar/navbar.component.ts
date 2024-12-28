@@ -17,12 +17,18 @@ export class NavbarComponent implements OnInit {
   constructor(
     private store: Store<any>,
     private newsActions: NewsActions
-  ) { }
+  ) {
+    this.subsections = ['home', 'world', 'politics', 'business', 'technology', 'sports', 'science', 'health', 'arts', 'books', 'style', 'food', 'travel', 'magazine', 'realestate'];
+   }
 
   ngOnInit() {
   }
 
   dispatchAction($event: string) {
+    if(!$event){
+      return
+    }
+    this.store.dispatch(this.newsActions.FilterSubsection($event))
   }
 
 }

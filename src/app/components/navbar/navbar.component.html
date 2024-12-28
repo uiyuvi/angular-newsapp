@@ -3,8 +3,8 @@
     class="nav-item"
     *ngFor="let subsection of subsections">
     <a 
-      href="javascript:void(0);"
-      class="nav-link  text-white small" 
-      (click)="">  </a>
+      [routerLink]="['/section', subsection]"
+      class="nav-link text-white small" 
+      (click)="dispatchAction(subsection)">{{subsection}}</a>
   </li>
 </ul>

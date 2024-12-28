@@ -1,7 +1,7 @@
 <div class="media">
     <!-- Display "image not found", when multimedia[] is empty" -->
     <img 
-      *ngIf="newsItem.multimedia.length === 0"
+      *ngIf="newsItem.multimedia && newsItem.multimedia.length === 0"
       class="d-flex mr-3" 
       alt="64x64" 
       src="http://www.video-furn.com/images/icons/AVFI-Image-not-available-icon.jpg"  
@@ -9,14 +9,14 @@
     
     <!-- Display "the image", when multimedia[] is not empty" -->
     <img 
-      *ngIf="newsItem.multimedia.length > 0"
+      *ngIf="newsItem.multimedia && newsItem.multimedia.length > 0"
       class="d-flex mr-3" 
       alt="64x64" 
       [src]="newsItem.multimedia[0].url"  
       style="width: 75px; height: 75px;">  
 
     <div class="media-body">
-      <h5 class="mt-0">  </h5>
+    <h5 class="mt-0">{{newsItem.title}}</h5>
     </div>
 </div>
 <!-- Button trigger modal -->
